@@ -57,3 +57,6 @@
 /home/dynamodenis/Desktop/projects/C#/App/API/bin/Debug/net6.0/Microsoft.IdentityModel.Logging.dll
 /home/dynamodenis/Desktop/projects/C#/App/API/bin/Debug/net6.0/Microsoft.IdentityModel.Tokens.dll
 /home/dynamodenis/Desktop/projects/C#/App/API/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll
+/home/dynamodenis/Desktop/projects/C#/App/API/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/dynamodenis/Desktop/projects/C#/App/API/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.dll
+/home/dynamodenis/Desktop/projects/C#/App/API/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
