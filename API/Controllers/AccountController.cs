@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using API.Data;
 using API.DTO;
 using API.Entities;
+using API.interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,13 +16,15 @@ namespace API.Controllers
     public class AccountController : BaseApiController
     {
         private readonly DataContext context;
-        public AccountController(DataContext context)
+        public ITokenService TokenService { get; }
+        public AccountController(DataContext context, ITokenService tokenService)
         {
+            this.TokenService = tokenService;
             this.context = context;
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<AppUser>> Register(RegisterDto registerDto)
+        public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
             // Check if user exists
             if (await userExists(registerDto.Username)) return BadRequest("User already exists");
@@ -36,11 +39,15 @@ namespace API.Controllers
 
             this.context.Users.Add(user);
             await this.context.SaveChangesAsync();
-            return user;
+            return new UserDto
+            {
+                Username = user.UserName,
+                Token = this.TokenService.CreateToken(user)
+            };
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<AppUser>> Login(LoginDto loginDto)
+        public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
             var user = await this.context.Users.SingleOrDefaultAsync(x => x.UserName == loginDto.Username);
             if (user == null) return Unauthorized("Invalid username");
@@ -54,7 +61,11 @@ namespace API.Controllers
             }
 
             // correct credentials
-            return user;
+            return new UserDto
+            {
+                Username = user.UserName,
+                Token = this.TokenService.CreateToken(user)
+            };
         }
 
         private async Task<bool> userExists(string username)

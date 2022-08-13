@@ -52,3 +52,8 @@
 /home/dynamodenis/Desktop/projects/C#/App/API/obj/Debug/net6.0/API.pdb
 /home/dynamodenis/Desktop/projects/C#/App/API/obj/Debug/net6.0/API.genruntimeconfig.cache
 /home/dynamodenis/Desktop/projects/C#/App/API/obj/Debug/net6.0/ref/API.dll
+/home/dynamodenis/Desktop/projects/C#/App/API/bin/Debug/net6.0/Microsoft.IdentityModel.Abstractions.dll
+/home/dynamodenis/Desktop/projects/C#/App/API/bin/Debug/net6.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/dynamodenis/Desktop/projects/C#/App/API/bin/Debug/net6.0/Microsoft.IdentityModel.Logging.dll
+/home/dynamodenis/Desktop/projects/C#/App/API/bin/Debug/net6.0/Microsoft.IdentityModel.Tokens.dll
+/home/dynamodenis/Desktop/projects/C#/App/API/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll
