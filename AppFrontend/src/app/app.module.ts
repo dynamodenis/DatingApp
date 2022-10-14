@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
+import { NotFoundComponent } from './errors/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestErrorsComponent
+    TestErrorsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
