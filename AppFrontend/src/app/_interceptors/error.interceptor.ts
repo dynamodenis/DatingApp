@@ -5,8 +5,8 @@ import {
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import { catchError, Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import { catchError, Observable, throwError } from 'rxjs';
+import { NavigationExtras, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
@@ -28,7 +28,7 @@ export class ErrorInterceptor implements HttpInterceptor {
                       modalStateErrors.push(error.error.errors[key])
                     }
                   }
-                  throw modalStateErrors;
+                  throw modalStateErrors.flat();
                 }else {
                     this.toastr.error(error.statusText, error.status);
                   }
@@ -48,7 +48,9 @@ export class ErrorInterceptor implements HttpInterceptor {
                 break
             }
           }
+          return throwError(error)
         }
+        
       )
     );
   }
