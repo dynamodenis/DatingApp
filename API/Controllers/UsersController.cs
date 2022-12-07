@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
+    [Authorize]
     public class UsersController : BaseApiController
     {
         public DataContext Context { get; }
@@ -25,7 +26,7 @@ namespace API.Controllers
             return users;
         }
 
-        [Authorize]
+
         [HttpGet("{id}")]
         public ActionResult<AppUser> GetUser(int id)
         {
